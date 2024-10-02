@@ -128,9 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="924-Poker_Game.cpp" />
+    <ClCompile Include="cards_functions.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cards.h" />
+    <ClInclude Include="dealer.h" />
     <ClInclude Include="enum_setup.hpp" />
+    <ClInclude Include="player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
