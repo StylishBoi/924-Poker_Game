@@ -1,3 +1,6 @@
+#ifndef DEALER_H
+#define DEALER_H
+
 #include <iostream>
 
 class Dealer
@@ -17,3 +20,5 @@ public:
 	dealer_4(c_2),
 	dealer_5(c_1){};
 };
+
+#endif

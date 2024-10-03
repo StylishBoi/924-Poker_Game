@@ -6,20 +6,17 @@
 #include "cards.h"
 #include "player.h"
 #include "dealer.h"
+#include "cards_setup.hpp"
 
 int main()
 {
 	srand(time(0));
 	Card card_1(random_suit(), random_value());
-	card_1.card_display();
 	Card card_2(random_suit(), random_value());
-	card_2.card_display();
 
-	card_1.pair_verification(card_1, card_2);
+	creation();
 
 	Player player_1(card_1, card_2);
-
-	player_1.player_display();
 
 	Card card_3(random_suit(), random_value());
 	Card card_4(random_suit(), random_value());

@@ -1,3 +1,6 @@
+#ifndef CARDS_FUNCTIONS
+#define CARDS_FUNCTIONS
+
 #include <iostream>
 #include "cards.h"
 
@@ -84,3 +87,5 @@ void Card::pair_verification(Card card_1,Card card_2)
 		std::cout << "You do not have a pair :[\n";
 	}
 }
+
+#endif 

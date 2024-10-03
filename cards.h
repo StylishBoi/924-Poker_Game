@@ -1,4 +1,5 @@
-#include <iostream>
+#ifndef CARDS_H
+#define CARDS_H
 
 class Card
 {
@@ -15,3 +16,5 @@ public:
 	//winning algorithms
 	void pair_verification(Card card_1, Card card_2);
 };
+
+#endif
