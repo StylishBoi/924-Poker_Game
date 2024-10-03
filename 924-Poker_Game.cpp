@@ -6,6 +6,8 @@
 #include "game_setup.hpp"
 #include "cards_setup.hpp"
 
+//recipient.erase(recipient.begin() + 0); UTILISER POUR SUPPRIMER UNE CARTE DU TAS
+
 int main()
 {
 	srand(time(0));
