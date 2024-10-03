@@ -1,36 +1,25 @@
-// 924-Poker_Game.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <vector>
 #include "enum_setup.hpp"
 #include "cards.h"
 #include "player.h"
-#include "dealer.h"
+#include "game_setup.hpp"
 #include "cards_setup.hpp"
 
 int main()
 {
 	srand(time(0));
+	Card temporary_object;
+	std::vector<Card> deck= { 52, temporary_object };
+	deck=creation(deck);
 
-	int total_cards = 0;
-	enum Suit temporary_suit;
-	enum Value temporary_value;
-
-	Card deck[53];
-
-	for (int i = 0; i < 13; ++i)
-	{
-		for (int x = 0; x < 4; ++x)
-		{
-			temporary_suit = fix_suit(x);
-			temporary_value = fix_value(i);
-			deck[total_cards].create(temporary_suit, temporary_value);
-			total_cards += 1;
-		}
-	}
-
-	for (int w = 0; w < 52; ++w)
+	//Variables for cards creations
+	for (int w = 0; w < deck.size(); ++w)
 	{
 		deck[w].card_display();
 	}
+
+	Player temporary_deck2 = player_cards(deck);
+	temporary_deck2.player_display();
+	Dealer temporary_deck3 = dealer_cards(deck);
 }
