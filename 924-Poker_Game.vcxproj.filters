@@ -24,6 +24,9 @@
     <ClCompile Include="player_functions.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="deck_functions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enum_setup.hpp">

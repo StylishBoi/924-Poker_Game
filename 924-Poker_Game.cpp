@@ -11,18 +11,26 @@
 int main()
 {
 	srand(time(0));
-	Card card_1(random_suit(), random_value());
-	Card card_2(random_suit(), random_value());
 
-	creation();
+	int total_cards = 0;
+	enum Suit temporary_suit;
+	enum Value temporary_value;
 
-	Player player_1(card_1, card_2);
+	Card deck[53];
 
-	Card card_3(random_suit(), random_value());
-	Card card_4(random_suit(), random_value());
-	Card card_5(random_suit(), random_value());
-	Card card_6(random_suit(), random_value());
-	Card card_7(random_suit(), random_value());
+	for (int i = 0; i < 13; ++i)
+	{
+		for (int x = 0; x < 4; ++x)
+		{
+			temporary_suit = fix_suit(x);
+			temporary_value = fix_value(i);
+			deck[total_cards].create(temporary_suit, temporary_value);
+			total_cards += 1;
+		}
+	}
 
-	Dealer deal(card_3, card_4, card_5, card_6, card_7);
+	for (int w = 0; w < 52; ++w)
+	{
+		deck[w].card_display();
+	}
 }

@@ -1,9 +1,10 @@
 #ifndef CARDS_SETUP_HPP
 #define CARDS_SETUP_HPP
 #include <vector>
+#include "cards.h"
 
-void creation() {
-	std::vector<Card> deck;
+/*Card creation() {
+	Card deck[53];
 	int total_cards = 0;
 	enum Suit temporary_suit;
 	enum Value temporary_value;
@@ -12,14 +13,14 @@ void creation() {
 	{
 		for (int x = 0; x < 4; ++x)
 		{
-			total_cards += 1;
 			temporary_suit = fix_suit(x);
 			temporary_value = fix_value(i);
-			deck.emplace_back(temporary_suit, temporary_value);
-			std::cout << temporary_suit << temporary_value << "\n";
+			deck[total_cards].create(temporary_suit, temporary_value);
+			total_cards += 1;
 		}
 	}
-	std::cout << "Total is " << total_cards;
-}
 
+	return deck;
+}
+*/
 #endif

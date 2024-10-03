@@ -4,8 +4,11 @@
 #include <iostream>
 #include "cards.h"
 
-Card::Card(enum Suit s_, enum Value v_) : suit(s_), value(v_) {};
-
+void Card::create(enum Suit s_, enum Value v_)
+{
+	suit = s_;
+	value = v_;
+}
 void Card::check_suit()
 	{
 		switch (suit)

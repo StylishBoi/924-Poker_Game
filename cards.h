@@ -8,7 +8,7 @@ private:
 	enum Value value;
 
 public:
-	Card(enum Suit s_, enum Value v_);
+	void create(enum Suit s_, enum Value v_);
 	void check_suit();
 	void check_value();
 	void card_display();
