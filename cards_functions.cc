@@ -72,7 +72,7 @@ void Card::check_value()
 			break;
 		}
 	}
-void Card::card_display()
+void Card::ToString()
 {
 	check_value();
 	std::cout << " of ";

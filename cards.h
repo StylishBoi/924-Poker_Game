@@ -11,7 +11,7 @@ public:
 	void create(enum Suit s_, enum Value v_);
 	void check_suit();
 	void check_value();
-	void card_display();
+	void ToString();
 
 	//winning algorithms
 	void pair_verification(Card card_1, Card card_2);
