@@ -1,18 +1,21 @@
+#ifndef POKER_GAME
+#define POKER_GAME
+#include "deck.h"
 #include <iostream>
 #include <vector>
-#include "deck.h"
-#include "cards.h"
-#include "player.h"
-#include "game_setup.hpp"
-#include "cards_setup.hpp"
-
-//recipient.erase(recipient.begin() + 0); UTILISER POUR SUPPRIMER UNE CARTE DU TAS
 
 int main()
 {
-	srand(time(0));
 	Deck deck;
 	deck.view_deck();
+	Card second_deck = deck.get_card(7);
+	second_deck.ToString();
 
-	//Variables for cards creations
+	std::vector<int> test;
+	test.push_back(6);
+	test.push_back(-17);
+	test.push_back(12);
+	test.erase(test.begin() + 1);
+	std::cout << test[1];
 }
+#endif

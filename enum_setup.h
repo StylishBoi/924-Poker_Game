@@ -1,5 +1,5 @@
-#ifndef ENUM_SETUP_HPP
-#define ENUM_SETUP_HPP
+#ifndef ENUM_SETUP_H
+#define ENUM_SETUP_H
 
 enum Suit
 {
@@ -59,7 +59,7 @@ enum Value fix_value(int test_1)
 	}
 }
 
-enum Suit fix_suit(int test_1){
+enum Suit fix_suit(int test_1) {
 	switch (test_1)
 	{
 	case 0:

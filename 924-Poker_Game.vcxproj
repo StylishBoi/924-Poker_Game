@@ -134,11 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cards.h" />
-    <ClInclude Include="cards_setup.hpp" />
     <ClInclude Include="dealer.h" />
     <ClInclude Include="deck.h" />
-    <ClInclude Include="enum_setup.hpp" />
-    <ClInclude Include="game_setup.hpp" />
+    <ClInclude Include="enum_setup.h" />
     <ClInclude Include="player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
