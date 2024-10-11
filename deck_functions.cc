@@ -2,6 +2,8 @@
 #define FUNCTIONS_DECK_CC
 #include "deck.h"
 #include "enum_setup.h"
+#include <vector>
+#include <iostream>
 
 Deck::Deck() {
 	int total_cards = 0;
@@ -16,7 +18,7 @@ Deck::Deck() {
 			temporary_suit = fix_suit(x);
 			temporary_value = fix_value(i);
 			temporary_object.create(temporary_suit, temporary_value);
-			arrCards[total_cards] = temporary_object;
+			arrCards.push_back(temporary_object);
 			total_cards += 1;
 		}
 	}
@@ -27,11 +29,13 @@ Card Deck::get_card(int number)
 	return arrCards[number];
 }
 
-/*Card Deck::erase_card(int index)
+void Deck::erase_card(int index)
 {
+	std::vector<Card> local_vector;
+	local_vector = arrCards;
 	arrCards.erase(arrCards.begin() + index);
 
-}*/
+}
 
 void Deck::view_deck()
 {
@@ -40,5 +44,11 @@ void Deck::view_deck()
 		arrCards[w].ToString();
 	}
 }
+
+int Deck::cards_left()
+{
+	return arrCards.size();
+}
+
 
 #endif

@@ -12,9 +12,17 @@ public:
 	void check_suit();
 	void check_value();
 	void ToString();
+	int return_value();
 
 	//winning algorithms
-	void pair_verification(Card card_1, Card card_2);
+	Card high_value(Card card_1, Card card_2);
+	bool pair_verification(Card card_1, Card card_2);
+	bool three_way_verification(Card card_1, Card card_2, Card card_3);
+	bool flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5);
+	bool straight(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5);
+	bool four_way_verification(Card card_1, Card card_2, Card card_3, Card card_4);
+	bool straight_flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5);
+	bool royal_flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5);
 };
 
 #endif

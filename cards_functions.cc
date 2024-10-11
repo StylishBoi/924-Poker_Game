@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "cards.h"
+#include <array>
 
 void Card::create(enum Suit s_, enum Value v_)
 {
@@ -79,15 +80,146 @@ void Card::ToString()
 	check_suit();
 	std::cout << "\n";
 }
-void Card::pair_verification(Card card_1,Card card_2)
+int Card::return_value()
 {
-	if (card_1.value==card_2.value)
+	return value;
+}
+
+Card Card::high_value(Card card_1, Card card_2)
+{
+	if (card_1.value>card_2.value)
 	{
-		std::cout << "You have a pair !\n";
+		return card_1;
+	}
+	else if (card_1.value < card_2.value)
+	{
+		return card_2;
 	}
 	else
 	{
-		std::cout << "You do not have a pair :[\n";
+		return card_2;
+	}
+}
+bool Card::pair_verification(Card card_1,Card card_2)
+{
+	if (card_1.value==card_2.value)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+bool Card::three_way_verification(Card card_1, Card card_2,Card card_3)
+{
+	if ((card_1.value == card_2.value) and (card_2.value == card_3.value))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+bool Card::flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
+{
+	if ((card_1.suit==card_2.suit) && (card_2.suit==card_3.suit) && (card_3.suit==card_4.suit) && (card_4.suit==card_5.suit))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+bool Card::straight(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
+{
+	std::array<int, 5> straight;
+	straight = {card_1.value, card_2.value, card_3.value, card_4.value, card_5.value};
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 1; j < 5; j++) {
+			if (straight[i] > straight[j])
+			{
+				int temp = straight[i];
+				straight[i] = straight[j];
+				straight[j] = temp;
+			}
+		}
+	}
+
+	if ((straight[1]+1==straight[2]) && (straight[2] + 1 == straight[3]) && (straight[3] + 1 == straight[4]) && (straight[4] + 1 == straight[5])){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+bool Card::four_way_verification(Card card_1, Card card_2, Card card_3, Card card_4)
+{
+	if ((card_1.value == card_2.value) && (card_2.value == card_3.value) && (card_3.value == card_4.value))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+bool Card::straight_flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
+{
+	std::array<int, 5> straight;
+	straight = { card_1.value, card_2.value, card_3.value, card_4.value, card_5.value };
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 1; j < 5; j++) {
+			if (straight[i] > straight[j])
+			{
+				int temp = straight[i];
+				straight[i] = straight[j];
+				straight[j] = temp;
+			}
+		}
+	}
+
+	if ((straight[1] + 1 == straight[2]) && (straight[2] + 1 == straight[3]) && (straight[3] + 1 == straight[4]) && (straight[4] + 1 == straight[5])) {
+		if ((card_1.suit == card_2.suit) && (card_2.suit == card_3.suit) && (card_3.suit == card_4.suit) && (card_4.suit == card_5.suit))
+		{
+			return true;
+		}
+	}
+	else {
+		return false;
+	}
+}
+bool Card::royal_flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
+{
+	std::array<int, 5> straight;
+	straight = { card_1.value, card_2.value, card_3.value, card_4.value, card_5.value };
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = i + 1; j < 5; j++) {
+			if (straight[i] > straight[j])
+			{
+				int temp = straight[i];
+				straight[i] = straight[j];
+				straight[j] = temp;
+			}
+		}
+	}
+
+	if ((straight[1] == 10) && (straight[2] == 11) && (straight[3] == 12) && (straight[4] == 13) && (straight[5] == 14)) {
+		if ((card_1.suit == card_2.suit) && (card_2.suit == card_3.suit) && (card_3.suit == card_4.suit) && (card_4.suit == card_5.suit))
+		{
+			return true;
+		}
+	}
+	else {
+		return false;
 	}
 }
 

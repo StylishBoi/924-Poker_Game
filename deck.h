@@ -1,11 +1,12 @@
 #ifndef DECK_H
 #define DECK_H
 #include "cards.h"
+#include <vector>
 
 class Deck
 {
 private:
-	Card arrCards[52];
+	std::vector<Card> arrCards;
 
 public:
 
@@ -13,9 +14,11 @@ public:
 
 	Card get_card(int Number);
 
-	Card erase_card(int index);
+	void erase_card(int index);
 
 	void view_deck();
+
+	int cards_left();
 
 };
 
