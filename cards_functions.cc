@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "cards.h"
-#include <array>
+#include <vector>
 
 void Card::create(enum Suit s_, enum Value v_)
 {
@@ -100,6 +100,29 @@ Card Card::high_value(Card card_1, Card card_2)
 		return card_2;
 	}
 }
+int Card::value_draw(Card card_1, Card card_2, Card enemy_1, Card enemy_2)
+{
+	if ((card_1.value > enemy_1.value) && (card_1.value > enemy_2.value))
+	{
+		return 2;
+	}
+	else if ((card_2.value > enemy_1.value) && (card_2.value > enemy_2.value))
+	{
+		return 2;
+	}
+	else if ((card_2.value < enemy_1.value) && (card_1.value < enemy_1.value))
+	{
+		return 1;
+	}
+	else if ((card_2.value < enemy_2.value) && (card_1.value < enemy_2.value))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
 bool Card::pair_verification(Card card_1,Card card_2)
 {
 	if (card_1.value==card_2.value)
@@ -113,7 +136,7 @@ bool Card::pair_verification(Card card_1,Card card_2)
 }
 bool Card::three_way_verification(Card card_1, Card card_2,Card card_3)
 {
-	if ((card_1.value == card_2.value) and (card_2.value == card_3.value))
+	if ((card_1.value == card_2.value) and (card_2.value == card_3.value) and (card_1.value==card_3.value))
 	{
 		return true;
 	}
@@ -135,12 +158,12 @@ bool Card::flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5
 }
 bool Card::straight(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
 {
-	std::array<int, 5> straight;
+	std::vector<int> straight;
 	straight = {card_1.value, card_2.value, card_3.value, card_4.value, card_5.value};
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < straight.size(); i++)
 	{
-		for (int j = 1; j < 5; j++) {
+		for (int j = 1; j < straight.size(); j++) {
 			if (straight[i] > straight[j])
 			{
 				int temp = straight[i];
@@ -170,12 +193,12 @@ bool Card::four_way_verification(Card card_1, Card card_2, Card card_3, Card car
 }
 bool Card::straight_flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
 {
-	std::array<int, 5> straight;
+	std::vector<int> straight;
 	straight = { card_1.value, card_2.value, card_3.value, card_4.value, card_5.value };
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < straight.size(); i++)
 	{
-		for (int j = 1; j < 5; j++) {
+		for (int j = 1; j < straight.size(); j++) {
 			if (straight[i] > straight[j])
 			{
 				int temp = straight[i];
@@ -197,12 +220,12 @@ bool Card::straight_flush(Card card_1, Card card_2, Card card_3, Card card_4, Ca
 }
 bool Card::royal_flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5)
 {
-	std::array<int, 5> straight;
+	std::vector<int> straight;
 	straight = { card_1.value, card_2.value, card_3.value, card_4.value, card_5.value };
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < straight.size(); i++)
 	{
-		for (int j = i + 1; j < 5; j++) {
+		for (int j = i + 1; j < straight.size(); j++) {
 			if (straight[i] > straight[j])
 			{
 				int temp = straight[i];

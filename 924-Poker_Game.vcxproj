@@ -141,6 +141,8 @@
     <ClInclude Include="enum_setup.h" />
     <ClInclude Include="hand_values.hpp" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="poker_game.hpp" />
+    <ClInclude Include="win_condition.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

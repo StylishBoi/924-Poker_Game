@@ -3,6 +3,7 @@
 #include "deck.h"
 #include "cards_setup.hpp"
 #include "hand_values.hpp"
+#include "poker_game.hpp"
 
 int main()
 {
@@ -11,18 +12,35 @@ int main()
 	Player player = player_cards(deck);
 	Enemy enemy = enemy_cards(deck);
 	Dealer dealer = dealer_cards(deck);
+	int player_money = 100;
+	int menu_choice;
 
-	player.player_display();
-	enemy.player_display();
+	std::cout << "WELCOME TO POKER \n\n";
 
-	high_value(player, enemy);
-	pair(player, dealer, enemy);
-	two_pairs(player, dealer, enemy);
-	three_of_a_kind(player, dealer, enemy);
-	flush(player, dealer, enemy);
-	straight(player, dealer, enemy);
-	four_of_a_kind(player, dealer, enemy);
-	straight_flush(player, dealer, enemy);
-	royal_flush(player, dealer, enemy);
+	while(true)
+	{
+		std::cout<<"-*- Main Menu -*-\n\n1 - Play\n2 - Rules\n3 - Leave\n\n";
+		std::cin >> menu_choice;
+		switch(menu_choice)
+		{
+		case 1:
+			std::cout << "\n - * - * - * - * - * - * - * - * - * - * - \n\n";
+			player_money=Poker_Match(player_money, player, dealer, enemy);
+			break;
+		case 2:
+			std::cout << "\nIn this game, you will play poker.\nYou will follow the basic poker rules with a money system.\nYou will face ONE opponent and need to have the better hand than him.\nIf you go bankrupt, you lose.\n\n";
+			break;
+		case 3:
+			std::cout << "Goodbye !";
+			return 0;
+		default:
+			std::cout << "\nWrong input, please try again.\n\n";
+		}
+		if (player_money==0)
+		{
+			std::cout << "You have went bankrupt :[\n\nGame Over";
+			return 0;
+		}
+	}
 }
 #endif

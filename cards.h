@@ -16,6 +16,7 @@ public:
 
 	//winning algorithms
 	Card high_value(Card card_1, Card card_2);
+	int value_draw(Card card_1, Card card_2, Card card_3, Card card_4);
 	bool pair_verification(Card card_1, Card card_2);
 	bool three_way_verification(Card card_1, Card card_2, Card card_3);
 	bool flush(Card card_1, Card card_2, Card card_3, Card card_4, Card card_5);

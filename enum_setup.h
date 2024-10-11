@@ -23,7 +23,7 @@ enum Value
 	Joker,
 	Queen,
 	King,
-	Ace,
+	Ace
 };
 
 enum Value fix_value(int test_1)
